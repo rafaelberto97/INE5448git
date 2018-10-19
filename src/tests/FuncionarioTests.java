@@ -122,6 +122,55 @@ public class FuncionarioTests {
 		ocorrenciaA.setResponsavel(lucas);
 		assertTrue(lucas.temOcorrencia(ocorrenciaA));
 		assertTrue(projeto.temOcorrencia(ocorrenciaA));
-		
 	}
+	
+	@Test
+	public void maximo10tarefasTest() throws Exception {
+		Projeto projeto = new Projeto("Projeto");
+		//1
+		Ocorrencia ocorrenciaA = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaA, projeto));
+		//2
+		Ocorrencia ocorrenciaB = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaB, projeto));
+		//3
+		Ocorrencia ocorrenciaC = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaC, projeto));
+		//4
+		Ocorrencia ocorrenciaD = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaD, projeto));
+		//5
+		Ocorrencia ocorrenciaE = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaE, projeto));
+		//6
+		Ocorrencia ocorrenciaF = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaF, projeto));
+		//7
+		Ocorrencia ocorrenciaG = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaG, projeto));
+		//8
+		Ocorrencia ocorrenciaH = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaH, projeto));
+		//9
+		Ocorrencia ocorrenciaI = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaI, projeto));
+		//10
+		Ocorrencia ocorrenciaJ = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaJ, projeto));
+		//11
+		Ocorrencia ocorrenciaK = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertFalse(rafael.adicionaOcorrencia(ocorrenciaK, projeto));
+		//CONCLUI 
+		rafael.concluiOcorrencia(ocorrenciaJ);
+		//10
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaK, projeto));
+		//11
+		Ocorrencia ocorrenciaL = new Ocorrencia("Ocorrencia", Ocorrencia.Tipos.Tarefa);
+		assertFalse(rafael.adicionaOcorrencia(ocorrenciaL, projeto));
+		//TRASFERE
+		Funcionario lucas = new Funcionario("Lucas");
+		ocorrenciaI.setResponsavel(lucas);
+		//10
+		assertTrue(rafael.adicionaOcorrencia(ocorrenciaL, projeto));
+	}	
 }

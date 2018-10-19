@@ -27,11 +27,15 @@ public class Funcionario {
 		return listaProjetos;
 	}
 	
-	public void adicionaOcorrencia(Ocorrencia ocorrencia, Projeto projeto) {
-		listaOcorrencias.add(ocorrencia);
-		projeto.adicionaOcorrencia(ocorrencia);
-		ocorrencia.setResponsavel(this);
-		ocorrencia.setProjeto(projeto);
+	public boolean adicionaOcorrencia(Ocorrencia ocorrencia, Projeto projeto) {
+		if (listaOcorrencias.size() < 10) {
+			listaOcorrencias.add(ocorrencia);
+			projeto.adicionaOcorrencia(ocorrencia);
+			ocorrencia.setResponsavel(this);
+			ocorrencia.setProjeto(projeto);
+			return true;
+		} 
+		return false;
 	}
 
 	public boolean temOcorrencia(Ocorrencia ocorrencia) {
